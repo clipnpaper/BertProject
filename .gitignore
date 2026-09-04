@@ -1,0 +1,30 @@
+# Python 가상환경
+.venv/
+venv/
+env/
+ENV/
+
+# Python 바이트코드 및 캐시
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Hugging Face 및 모델 다운로드 캐시
+.cache/
+hf_cache/
+
+# 환경 변수 및 인증 토큰 파일
+.env
+.env.local
+token.txt
+
+# IDE / 에디터 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS 관련 임시 파일
+.DS_Store
+Thumbs.db
