@@ -24,10 +24,19 @@ token_ids = tokenizer.convert_tokens_to_ids(tokens)
 print("\n--- 토큰 ID 변환 ---")
 print(token_ids)
 
-token_ids = torch.tensor([token_ids]).unsqueeze(0)
-attention_mask = torch.tensor([attention_mask]).unsqueeze(0)
+token_ids = torch.tensor([token_ids])
+attention_mask = torch.tensor([attention_mask])
 
-hidden_rep, cls_head = model(token_ids, attention_mask=attention_mask)
+outputs = model(token_ids, attention_mask=attention_mask)
+hidden_rep = outputs.last_hidden_state
+cls_head = outputs.pooler_output
+
+print("\n--- hidden_rep (모든 토큰의 표현 벡터) ---")
+print(hidden_rep.shape)
+
+print("\n--- cls_head ([CLS] 토큰의 표현 벡터) ---")
+print(cls_head.shape)
+
 
 # 3. 표준 토큰화 방식 (PyTorch 텐서 형태로 반환)
 inputs = tokenizer(sentence, return_tensors='pt')
