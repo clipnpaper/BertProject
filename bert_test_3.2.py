@@ -28,8 +28,8 @@ token_ids = tokenizer.convert_tokens_to_ids(tokens)
 print("\n--- 토큰 ID 변환 ---")
 print(token_ids)
 
-token_ids = torch.tensor([token_ids])
-attention_mask = torch.tensor([attention_mask])
+token_ids = torch.tensor(token_ids).unsqueeze(0)
+attention_mask = torch.tensor(attention_mask).unsqueeze(0)
 
 outputs = model(token_ids, attention_mask=attention_mask)
 hidden_rep = outputs.last_hidden_state
