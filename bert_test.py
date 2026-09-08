@@ -12,7 +12,11 @@ tokens = tokenizer.tokenize(sentence)
 print("--- 분절된 토큰 ---")
 print(tokens)
 
-tokens = tokens + ['[PAD]'] + ['[PAD]']
+tokens = ['[CLS]'] + tokens + ['[SEP]']
+print("\n--- [CLS] 와 [SEP] 추가 후 토큰 ---")
+print(tokens)
+
+tokens = tokens + ['[PAD]'] *2
 print("\n--- [PAD] 추가 후 토큰 ---")
 print(tokens)
 
